@@ -17,7 +17,7 @@ class EmployeesController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {   
         // return "welcome index";
@@ -49,11 +49,6 @@ class EmployeesController extends Controller
         $emp_name=request('emp_name');
         $email=request('email');
         $salary=request('salary');
-        // $emp= new Employee();
-        // $emp->emp_name=$emp_name;
-        // $emp->email=$email;
-        // $emp->salary=$salary;
-        // $emp->save();
 
         Employee::create([
             "emp_name"=>$emp_name,
@@ -104,16 +99,6 @@ class EmployeesController extends Controller
         $data = $request->all();
         $employee->fill($data)->save();
         return redirect("/employees/".$employee->id);
-
-        // $data=request()->validate([
-        //     "emp_name"=>"required",
-        //     "email"=>"required|email",
-        //     "salary"=>"numeric"
-        // ]);
-          // $emp->emp_name=request('emp_name');
-        // $emp->email=request('email');
-        // $emp->salary=request('salary');
-        // $emp->save();
     
     }
 
